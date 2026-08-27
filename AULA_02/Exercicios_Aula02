@@ -1,1 +1,62 @@
+LAB 01 - AULA 02
+1. Avaliação dos resultados
+
+Os resultados estão corretos, pois o modelo identificou corretamente as intenções de consultar saldo, fazer Pix e cancelar conta.
+
+2. Como melhorar
+
+Para melhorar o algoritmo, é necessário aumentar o número de exemplos no dataset e adicionar diferentes formas de escrever cada intenção.
+
+3. Função do LogisticRegression
+
+O LogisticRegression é responsável por classificar as mensagens. Ele aprende, durante o treinamento, quais palavras estão relacionadas a cada intenção e utiliza esse aprendizado para classificar novas mensagens.
+
+
+LAB 02 - AULA 02
+1. Avaliação dos resultados
+
+O resultado está correto. A mensagem foi classificada como troca_devolucao, pois fala sobre devolver um produto.
+
+2. Como melhorar
+
+Para melhorar o resultado, podemos aumentar o dataset com mais exemplos e diferentes formas de solicitar troca ou devolução.
+
+3. Função do Naive Bayes
+
+O Naive Bayes calcula a probabilidade de uma mensagem pertencer a cada intenção e escolhe a classe com maior probabilidade. Neste caso, ele identificou troca_devolucao como a intenção mais provável.
+
+
+LAB 03 - AULA 02
+Código corrigido
+X = df3['mensagem']
+y = df3['intencao']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.30, random_state=42
+)
+
+vectorizer = CountVectorizer()
+X_train_vec = vectorizer.fit_transform(X_train)
+X_test_vec = vectorizer.transform(X_test)
+
+modelo_arvore = DecisionTreeClassifier(random_state=42)
+modelo_arvore.fit(X_train_vec, y_train)
+
+predicoes = modelo_arvore.predict(X_test_vec)
+acuracia = accuracy_score(y_test, predicoes)
+
+print(f"Acurácia do Modelo: {acuracia * 100:.2f}%")
+
+1. Acurácia
+
+A acurácia obtida é 33,33%. Como o dataset possui apenas 9 exemplos, o resultado pode ser enganoso, pois o conjunto de teste possui poucos dados e qualquer erro altera muito a porcentagem.
+
+2. DecisionTreeClassifier
+
+A Árvore de Decisão separa as intenções analisando as palavras presentes nas mensagens e criando regras para escolher a classe mais provável.
+
+3. Risco de não usar max_depth
+
+Sem limite de profundidade, a árvore pode ficar muito complexa e decorar os dados de treinamento, causando overfitting e piorando os resultados em mensagens novas.
+
 
