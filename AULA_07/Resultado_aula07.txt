@@ -1,1 +1,26 @@
+#EXERCÍCIO 01 - PRÉ-PROCESSAMENTO
+
+Código:
+
+tokens = ["os", "produtos", "comprados", "não", "chegaram"]
+stopwords = ["os", "não"]
+
+tokens_limpos = []
+
+for palavra in tokens:
+    if palavra in stopwords:
+        continue
+    elif palavra == "comprados":
+        tokens_limpos.append("comprar")
+    elif palavra == "chegaram":
+        tokens_limpos.append("chegar")
+    else:
+        tokens_limpos.append(palavra)
+
+print(tokens_limpos)
+
+Saída:
+['produtos', 'comprar', 'chegar']
+
+#Resposta: O Stemming corta partes da palavra e pode gerar palavras que não existem. Lematização busca a forma correta da palavra no dicionário.
 
