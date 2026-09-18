@@ -118,7 +118,7 @@ __________________________________________________
 
 #EXERCÍCIO 06: - REPRESENTAÇÃO VETORIAL
 
-Código:
+
 
 def sao_sinonimos(distancia):
     if distancia < 0.20:
@@ -138,7 +138,6 @@ ___________________________________________________
 #EXERCÍCIO 07: - LIMPEZA DE TEXTO
 
 
-Código:
 
 bruta = ["O", "sistema", "está", "muito", "lento", "hoje", "!"]
 stopwords = ["O", "está"]
@@ -163,7 +162,6 @@ __________________________________________________________
 #EXERCÍCIOS 08 - MÉTRICAS DE AVALIAÇÃO - RECALL
 
 
-Código:
 
 vp = 90
 fn = 10
@@ -203,7 +201,26 @@ Saída:
 
 #RESPOSTAS: Stemming reduz palavras cortando partes delas, é mais rápido porque usa regras simples e não precisa analisar o significado
 
+____________________________________________________________
 
+EXERCÍCIO 10 - SELEÇÃO DE INTENÇÃO E FALLBACK
+
+
+
+probabilidades = [0.25, 0.30, 0.15]
+limiar = 0.60
+
+maior_confianca = max(probabilidades)
+
+if maior_confianca >= limiar:
+    print("Intenção Confirmada")
+else:
+    print("Acionar Fallback")
+
+Saída:
+Acionar Fallback
+
+#RESPOSTA: Quando o chatbot não tem confiança suficiente para identificar a intenção, ele pode pedir para o usuário explicar ou reformular o que deseja. O objetivo do Fallback é evitar que o sistema escolha uma intenção errada e tentar conseguir mais informações do usuário
 
 
 
