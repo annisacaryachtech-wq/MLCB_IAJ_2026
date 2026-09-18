@@ -1,4 +1,4 @@
-#EXERCÍCIO 01 - PRÉ-PROCESSAMENTO
+#EXERCÍCIO 01: - PRÉ-PROCESSAMENTO
 
 Código:
 
@@ -22,5 +22,28 @@ print(tokens_limpos)
 Saída:
 ['produtos', 'comprar', 'chegar']
 
-#Resposta: O Stemming corta partes da palavra e pode gerar palavras que não existem. Lematização busca a forma correta da palavra no dicionário.
+#RESPOSTA: O Stemming corta partes da palavra e pode gerar palavras que não existem. Lematização busca a forma correta da palavra no dicionário
+
+
+
+
+
+
+#EXERCÍCIO 02: - VALIDAÇÃO DE NLU
+
+
+Código:
+
+def validar_intencao(confianca):
+    if confianca >= 0.70:
+        return "Ação Executada"
+    else:
+        return "Fallback Acionado"
+
+print(validar_intencao(0.55))
+
+Saída:
+Fallback Acionado
+
+#RESPOSTA: Se o limite fosse apenas 20%, o sistema poderia considerar uma resposta com pouca confiança como correta. Em um banco, isso poderia fazer o sistema executar ações erradas, como identificar uma intenção incorretamente ou realizar uma operação que o cliente não pediu
 
