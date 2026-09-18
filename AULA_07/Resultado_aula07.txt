@@ -47,3 +47,52 @@ Fallback Acionado
 
 #RESPOSTA: Se o limite fosse apenas 20%, o sistema poderia considerar uma resposta com pouca confiança como correta. Em um banco, isso poderia fazer o sistema executar ações erradas, como identificar uma intenção incorretamente ou realizar uma operação que o cliente não pediu
 
+
+
+
+
+#EXERCÍCIO 03: - PONDERAÇÃO DE PALAVRAS - TF-IDF
+
+
+Código:
+
+def calcular_peso_tfidf(frequencia_geral):
+    if frequencia_geral == "muito_frequente":
+        return 0.1
+    elif frequencia_geral == "pouco_frequente":
+        return 0.9
+
+print(calcular_peso_tfidf("pouco_frequente"))
+
+Saída:
+0.9
+
+#RESPOSTA: As palavras comuns recebem peso baixo porque aparecem muito e Palavras raras recebem peso alto porque ajudam mais a diferenciar os textos
+
+
+
+
+
+
+#EXERCÍCIO 04: - MÉTRICAS DE AVALIAÇÃO - PRECISÃO
+
+
+Código:
+
+vp = 80
+fp = 20
+fn = 5
+
+precisao = vp / (vp + fp)
+
+print(f"{precisao * 100:.2f}%")
+
+Saída:
+80.00%
+
+#RESPOSTA: Um Falso Positivo acontece quando o sistema identifica uma compra normal como fraude, isso pode causar bloqueio de uma compra verdadeira e prejudicar o cliente e um Falso Negativo acontece quando o sistema não percebe uma fraude que realmente aconteceu e Nesse caso, a empresa pode perder dinheiro diretamente com a fraude
+
+
+
+
+
