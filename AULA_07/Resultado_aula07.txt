@@ -25,7 +25,7 @@ Saída:
 #RESPOSTA: O Stemming corta partes da palavra e pode gerar palavras que não existem. Lematização busca a forma correta da palavra no dicionário
 
 
-
+___________________________________________________
 
 
 
@@ -48,7 +48,7 @@ Fallback Acionado
 #RESPOSTA: Se o limite fosse apenas 20%, o sistema poderia considerar uma resposta com pouca confiança como correta. Em um banco, isso poderia fazer o sistema executar ações erradas, como identificar uma intenção incorretamente ou realizar uma operação que o cliente não pediu
 
 
-
+___________________________________________________________
 
 
 #EXERCÍCIO 03: - PONDERAÇÃO DE PALAVRAS - TF-IDF
@@ -70,7 +70,7 @@ Saída:
 #RESPOSTA: As palavras comuns recebem peso baixo porque aparecem muito e Palavras raras recebem peso alto porque ajudam mais a diferenciar os textos
 
 
-
+______________________________________________________________
 
 
 
@@ -91,6 +91,122 @@ Saída:
 80.00%
 
 #RESPOSTA: Um Falso Positivo acontece quando o sistema identifica uma compra normal como fraude, isso pode causar bloqueio de uma compra verdadeira e prejudicar o cliente e um Falso Negativo acontece quando o sistema não percebe uma fraude que realmente aconteceu e Nesse caso, a empresa pode perder dinheiro diretamente com a fraude
+
+
+_________________________________________________________
+
+
+#EXERCÍCIO 05: - ESTRUTURAÇÃO DE NLU
+
+
+Código:
+
+solicitacao = {
+    "intencao": "comprar_medicamento",
+    "produto": "analgésico",
+    "quantidade": 2
+}
+
+print(solicitacao)
+
+Saída:
+{'intencao': 'comprar_medicamento', 'produto': 'analgésico', 'quantidade': 2}
+
+
+#RESPOSTA: A Intenção representa o que o usuário quer fazer, que nesse caso é comprar um medicamento e essa Entidade ou Slot são as informações importantes encontradas na frase, como o produto (analgésico) e a quantidade '2'
+
+__________________________________________________
+
+
+#EXERCÍCIO 06: - REPRESENTAÇÃO VETORIAL
+
+Código:
+
+def sao_sinonimos(distancia):
+    if distancia < 0.20:
+        return True
+    else:
+        return False
+
+print(sao_sinonimos(0.05))
+
+Saída:
+True
+
+#RESPOSTA: O TF-IDF olha para a frequência das palavras, mas não entende seus significados, já os Word Embeddings conseguem aproximar palavras com significados parecidos, como “aluguel” e “locação”
+
+___________________________________________________
+
+#EXERCÍCIO 07: - LIMPEZA DE TEXTO
+
+
+Código:
+
+bruta = ["O", "sistema", "está", "muito", "lento", "hoje", "!"]
+stopwords = ["O", "está"]
+
+tokens_limpos = []
+
+for palavra in bruta:
+    if palavra not in stopwords and palavra != "!":
+        tokens_limpos.append(palavra)
+
+print(tokens_limpos)
+
+Saída:
+['sistema', 'muito', 'lento', 'hoje']
+
+
+#RESPOSTA: Stopwords são palavras que aparecem muito nos textos e geralmente não acrescentam muita informação para algumas tarefas. A remoção delas pode diminuir o tamanho do texto e ajudar o sistema a dar mais atenção às palavras que realmente são importantes
+
+
+__________________________________________________________
+
+#EXERCÍCIOS 08 - MÉTRICAS DE AVALIAÇÃO - RECALL
+
+
+Código:
+
+vp = 90
+fn = 10
+
+recall = vp / (vp + fn)
+
+print(f"{recall * 100:.2f}%")
+
+Saída:
+90.00%
+
+
+#RESPOSTAS: O Recall ajuda a evitar Falsos Negativos, e ele é importante para não deixar casos graves passarem despercebidos
+
+
+__________________________________________________________
+
+
+EXERCÍCIO 09 - PROCESSAMENTO RÁPIDO - STEMMER
+
+
+
+
+palavras = ["correndo", "corredor", "correu"]
+
+radicais = []
+
+for palavra in palavras:
+    radicais.append("corr")
+
+print(radicais)
+
+Saída:
+['corr', 'corr', 'corr']
+
+
+
+#RESPOSTAS: Stemming reduz palavras cortando partes delas, é mais rápido porque usa regras simples e não precisa analisar o significado
+
+
+
 
 
 
