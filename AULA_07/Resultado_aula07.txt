@@ -1,6 +1,5 @@
 #EXERCÍCIO 01: - PRÉ-PROCESSAMENTO
 
-Código:
 
 tokens = ["os", "produtos", "comprados", "não", "chegaram"]
 stopwords = ["os", "não"]
@@ -32,7 +31,7 @@ ___________________________________________________
 #EXERCÍCIO 02: - VALIDAÇÃO DE NLU
 
 
-Código:
+
 
 def validar_intencao(confianca):
     if confianca >= 0.70:
@@ -54,7 +53,6 @@ ___________________________________________________________
 #EXERCÍCIO 03: - PONDERAÇÃO DE PALAVRAS - TF-IDF
 
 
-Código:
 
 def calcular_peso_tfidf(frequencia_geral):
     if frequencia_geral == "muito_frequente":
@@ -77,7 +75,7 @@ ______________________________________________________________
 #EXERCÍCIO 04: - MÉTRICAS DE AVALIAÇÃO - PRECISÃO
 
 
-Código:
+
 
 vp = 80
 fp = 20
@@ -99,7 +97,7 @@ _________________________________________________________
 #EXERCÍCIO 05: - ESTRUTURAÇÃO DE NLU
 
 
-Código:
+
 
 solicitacao = {
     "intencao": "comprar_medicamento",
